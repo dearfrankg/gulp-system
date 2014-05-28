@@ -1,0 +1,5 @@
+node_modules
+core/client/app/assets/bower_components
+core/client/app/.tmp
+core/client/build
+core/client/.disabled-modules
