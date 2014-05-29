@@ -24,6 +24,7 @@ app = angular.module('app', [
 require('./common/services')(app)
 require('./common/filters')(app)
 require('./phonecat/controllers')(app)
+require('./phonecat/animations')(app)
 
 ###
 # configure routes
