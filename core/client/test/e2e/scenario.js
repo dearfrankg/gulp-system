@@ -4,10 +4,10 @@
 
 describe('App', function() {
 
-    it('should redirect index.html to index.html#/splash', function() {
-        browser.get('/index.html');
+    it('should redirect / to /#/phones', function() {
+        browser.get('/');
         browser.getLocationAbsUrl().then(function(url) {
-            expect(url.split('#')[1]).toBe('/splash');
+            expect(url.split('#')[1]).toBe('/phones');
         });
     });
 

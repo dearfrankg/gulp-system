@@ -23,7 +23,6 @@ app = angular.module('app', [
 ###
 require('./common/services')(app)
 require('./common/filters')(app)
-require('./splash/controller')(app)
 
 ###
 # configure routes
@@ -32,8 +31,12 @@ app.config ($routeProvider) ->
 
     $routeProvider
 
-        .when("/splash",
-          templateUrl: "modules/splash/view.tpl.html"
-          controller: "SplashCtrl"
+        .when("/phones",
+          templateUrl: "modules/splash/list-view.tpl.html"
+        )
 
-        ).otherwise redirectTo: "/splash"
+        .when("/phones/:phoneId",
+          templateUrl: "modules/splash/detail-view.tpl.html"
+        )
+
+        .otherwise redirectTo: "/phones"
