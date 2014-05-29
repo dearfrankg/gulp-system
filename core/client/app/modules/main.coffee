@@ -21,6 +21,8 @@ app = angular.module('app', [
 ###
 # pass app module to add features to it
 ###
+require('./common/services')(app)
+require('./common/filters')(app)
 require('./splash/controller')(app)
 
 ###
