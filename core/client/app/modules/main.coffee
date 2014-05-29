@@ -33,11 +33,13 @@ app.config ($routeProvider) ->
     $routeProvider
 
         .when("/phones",
-          templateUrl: "modules/splash/list-view.tpl.html"
+          templateUrl: "modules/phonecat/list-view.tpl.html"
+          controller: 'ListCtrl'
         )
 
         .when("/phones/:phoneId",
-          templateUrl: "modules/splash/detail-view.tpl.html"
+          templateUrl: "modules/phonecat/detail-view.tpl.html"
+          controller: 'DetailCtrl'
         )
 
         .otherwise redirectTo: "/phones"
