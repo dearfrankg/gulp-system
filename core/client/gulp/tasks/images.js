@@ -10,5 +10,5 @@ module.exports = function() {
         .pipe(changed(dest)) // Ignore unchanged files
         .pipe(imagemin()) // Optimize
         .pipe(gulp.dest(dest))
-        // .pipe(livereload());
 };
+

@@ -1,28 +1,26 @@
-var es           = require("event-stream");
-var sass         = require('gulp-sass');
 var gulp         = require('gulp');
-var livereload   = require('gulp-livereload');
-var concat       = require('gulp-concat')
-var notify       = require('gulp-notify');
-var handleErrors = require('../util/handleErrors');
-var prefix       = require('gulp-autoprefixer');
+var sass         = require('gulp-sass');
+var rename       = require('gulp-rename');
+
+
+
+// var es           = require("event-stream");
+// var livereload   = require('gulp-livereload');
+// var concat       = require('gulp-concat')
+// var notify       = require('gulp-notify');
+// var handleErrors = require('../util/handleErrors');
+// var prefix       = require('gulp-autoprefixer');
+// var source       = require('vinyl-source-stream');
 
 
 module.exports = function() {
 
-    return es.concat(
-            gulp.src([
-                './app/assets/bower_components/bootstrap/dist/css/bootstrap.css'
-                // './app/assets/styles/pure-layout.css',
-                // './app/index/index.css'
-            ]),
-            gulp.src('./app/modules/main.scss')
-                .pipe(sass()
-            )
-        )
-        .pipe(concat('app.css'))
-        .pipe(gulp.dest('dist/'))
-        // .pipe( livereload() );
-
+    return gulp.src('./app/modules/main.scss')
+        .pipe(sass())
+        .pipe(rename({basename: 'app'}))
+        .pipe(gulp.dest('dist/'));
 
 };
+
+
+
