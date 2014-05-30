@@ -8,7 +8,7 @@ var handleErrors = require('../util/handleErrors');
 var prefix       = require('gulp-autoprefixer');
 
 
-gulp.task('scss', function(){
+module.exports = function() {
 
     return es.concat(
             gulp.src([
@@ -21,6 +21,8 @@ gulp.task('scss', function(){
             )
         )
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('build/'))
+        .pipe(gulp.dest('dist/'))
+        // .pipe( livereload() );
 
-});
+
+};

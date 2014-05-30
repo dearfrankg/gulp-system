@@ -2,7 +2,7 @@ var gulp    = require('gulp');
 var html2js = require('gulp-ng-html2js');
 var concat  = require('gulp-concat')
 
-gulp.task('html2js', function() {
+module.exports = function() {
 
     return gulp.src('./app/**/*.tpl.html')
         .pipe(html2js({
@@ -12,4 +12,4 @@ gulp.task('html2js', function() {
         .pipe(concat('templates.js'))
         .pipe(gulp.dest('./app/.tmp'));
 
-});
+};

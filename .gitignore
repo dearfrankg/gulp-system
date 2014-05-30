@@ -3,3 +3,5 @@ core/client/app/assets/bower_components
 core/client/app/.tmp
 core/client/build
 core/client/.disabled-modules
+core/client/old-gulp/
+core/client/dist

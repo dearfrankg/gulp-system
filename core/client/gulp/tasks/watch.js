@@ -1,19 +1,12 @@
 var gulp       = require('gulp');
 var livereload = require('gulp-livereload');
 
-gulp.task('watch', ['build'], function() {
-	var server = livereload();
+module.exports = function(){
 
-	var reload = function(file) {
-		server.changed(file.path);
-	};
+    gulp.watch(['app/**/*.{js,coffee,tpl.html}', '!app/**/*Spec.{js,coffee}'], ['browserify']);
+    gulp.watch(['app/**/*.scss', 'app/**/*.css'], ['sass']);
+    gulp.watch('app/assets/images/**', ['images']);
+    gulp.watch('app/**/*.html', ['copy-index']);
 
-    gulp.watch(['app/**/*.{js,coffee,html}', '!app/**/*Spec.{js,coffee}'], ['browserify']);
-    gulp.watch('app/index.html', ['copy']);
-	gulp.watch('app/**/*.scss', ['scss']);
-	gulp.watch('app/assets/img/**', ['images']);
-    gulp.watch(['build/**']).on('change', reload);
-});
-
-
-
+    // livereload();
+};

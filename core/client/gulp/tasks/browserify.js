@@ -1,15 +1,17 @@
-var browserify   = require('browserify');
-var gulp         = require('gulp');
+var browserify = require('browserify');
+var gulp = require('gulp');
+var livereload = require('gulp-livereload');
+var source = require('vinyl-source-stream');
 var handleErrors = require('../util/handleErrors');
-var source       = require('vinyl-source-stream');
 
-gulp.task('browserify', ['html2js'], function(){
-	return browserify({
-			entries: ['./app/modules/main.coffee'],
-			extensions: ['.coffee', '.hbs']
-		})
-		.bundle({debug: true})
-		.on('error', handleErrors)
-		.pipe(source('app.js'))
-		.pipe(gulp.dest('./build/'));
-});
+module.exports = function() {
+    return browserify({
+            entries: ['./app/modules/main.coffee'],
+            extensions: ['.coffee']
+        })
+        .bundle({debug: true})
+        .on('error', handleErrors)
+        .pipe(source('app.js'))
+        .pipe(gulp.dest('./dist/'))
+
+};
